@@ -225,4 +225,22 @@ public class JedisProxy {
     public Long scard(String key) {
         return jedisCommands.scard(key);
     }
+
+    // List operations used by WorkflowMessageQueueDAO
+
+    public Long rpush(String key, String... values) {
+        return jedisCommands.rpush(key, values);
+    }
+
+    public Long llen(String key) {
+        return jedisCommands.llen(key);
+    }
+
+    public List<String> lrange(String key, long start, long stop) {
+        return jedisCommands.lrange(key, start, stop);
+    }
+
+    public String ltrim(String key, long start, long stop) {
+        return jedisCommands.ltrim(key, start, stop);
+    }
 }
